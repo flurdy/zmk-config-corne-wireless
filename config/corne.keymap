@@ -109,16 +109,16 @@
 
             // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
             // -----------------------------------------------------------------------------------------
-            // |      |     |     |      |     |     |   |     | HOME |  UP  |  END  | PGUP |     |
-            // |      |     |     |      |     |     |   |     | LEFT | DOWN |  RGT  | PGDN |     |
-            // |      |     |     |      |     |     |   |     |      |      |       |      |     |
-            //                    | BASE |     |     |   |     |      |      |
+            // |      |      |        |      |        |     |   | TOP | HOME |  UP  |  END  | PGUP |     |
+            // |      |  SEL | RELOAD | SAVE | NEWTAB |     |   |     | LEFT | DOWN |  RGT  | PGDN |     |
+            // |      |      |        |      |        |     |   |     |      |      |  BTTM |      |     |
+            //                        | BASE |        |     |   |     |      |      |
 
             bindings = <
-&none   &none         &none         &none      &none      &none     &none   &kp HOME  &kp UP    &kp END    &kp PAGE_UP    &trans
-&none   &kp LEFT_GUI  &kp LEFT_ALT  &kp LSHFT  &kp LCTRL  &none     &none   &kp LEFT  &kp DOWN  &kp RIGHT  &kp PAGE_DOWN  &trans
-&trans  &none         &none         &none      &none                &trans  &trans    &trans    &trans     &trans         &trans   &trans
-                                    &to BASE   &trans               &trans  &trans    &trans    &trans
+&none   &none          &none          &none            &none            &none     &kp LC(HOME)  &kp HOME  &kp UP    &kp END      &kp PAGE_UP    &none
+&none   &mt LGUI LC(A) &mt LALT LC(R) &mt LSHFT LC(S)  &mt LCTRL LC(T)  &none     &none         &kp LEFT  &kp DOWN  &kp RIGHT    &kp PAGE_DOWN  &none
+&trans  &none          &none          &none            &none            &none     &none         &trans    &trans    &kp LC(END)  &trans         &none
+                                      &to BASE         &none            &none     &trans        &trans    &trans
             >;
         };
 
@@ -132,16 +132,16 @@
 
             // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
             // -----------------------------------------------------------------------------------------
-            // |    |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  |      |
-            // |    |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-            // |    |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-            //                 | BASE |     |     |   |     |     |     |
+            // |    |     |  #  |  £  |  ^  |  «  |    |  »  |     |     |     |     |  |
+            // |    |  |  |  @  |  _  |  `  |  (  |    |  )  |  "  |  :  |  ;  |     |  |
+            // |    |  \  |  ~  |  &  |  $  |  {  |    |  }  |     |     |     |  ?  |  |
+            //                 | BASE |     |     |    |     |     |     |
 
             bindings = <
-&trans  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS   &kp KP_MULTIPLY  &kp LPAR  &kp RPAR  &none
-&trans  &trans    &trans  &trans    &trans    &trans       &kp MINUS  &kp EQUAL  &kp LBKT         &kp RBKT  &kp BSLH  &kp GRAVE
-&trans  &trans    &trans  &trans    &trans    &trans       &kp UNDER  &kp PLUS   &kp LBRC         &kp RBRC  &kp PIPE  &kp TILDE
-                          &to BASE  &trans    &trans       &trans     &trans     &trans
+&trans  &kp LS(LA(0))      &kp HASH      &kp LS(NUMBER_3)  &kp RA(NUMBER_4)  &kp RA(Z)   &kp RA(X)  &kp RCTRL     &kp RSHIFT       &kp RALT       &kp RGUI    &none
+&trans  &mt LGUI LS(NUBS)  &mt LALT DQT  &mt LSHFT UNDER   &mt LCTRL GRAVE   &kp LPAR    &kp RPAR   &mt LCTRL AT  &mt LSHFT COLON  &mt LALT SEMI  &kp LGUI    &none
+&trans  &kp NUBS           &kp PIPE      &kp AMPS          &kp DLLR          &kp LBRC    &kp RBRC   &none         &none            &kp RA(LSHFT)   &kp QMARK  &none
+                                         &to BASE          &trans            &trans      &trans     &trans        &trans
             >;
         };
 
@@ -230,7 +230,7 @@
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans      &kp K_VOL_UP    &none
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans      &kp K_VOL_DOWN  &none
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &kp C_MUTE  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &kp C_MUTE  &trans          &trans
                         &to 0   &trans  &trans    &trans  &trans  &trans
             >;
         };
