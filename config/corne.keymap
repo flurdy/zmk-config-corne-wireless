@@ -228,10 +228,10 @@
             //                 | BASE |     |     |   |     |     |     |
 
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans      &kp C_VOL_UP  &none
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans      &kp C_VOL_DN  &none
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &kp K_MUTE  &trans        &trans
-                        &to 0   &trans  &trans    &trans  &trans  &trans
+&kp K_POWER  &trans  &trans  &trans  &trans  &kp K_SLEEP             &trans  &trans  &trans  &trans      &kp C_VOL_UP  &none
+&trans       &trans  &trans  &trans  &trans  &kp C_AL_SCREENSAVER    &trans  &trans  &trans  &trans      &kp C_VOL_DN  &none
+&trans       &trans  &trans  &trans  &trans  &kp K_LOCK              &trans  &trans  &trans  &kp K_MUTE  &trans        &trans
+                             &to 0   &trans  &trans                  &trans  &trans  &trans
             >;
         };
 
@@ -255,6 +255,15 @@
 &trans  &trans  &trans  &trans  &trans  &trans    &none       &bt BT_SEL 4  &none         &none         &none  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &none       &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &none  &trans
                         &to 0   &trans  &trans    &none       &bt BT_SEL 0  &none
+            >;
+        };
+
+        norway_layer {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans     &trans     &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &kp RA(A)  &kp RA(O)  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans     &trans     &trans  &trans
+                        &to 0   &trans  &trans    &trans  &trans  &trans
             >;
         };
     };
