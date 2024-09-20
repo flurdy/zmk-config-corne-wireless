@@ -86,13 +86,13 @@
             // | SHFT |  Z  |  X  |  C  |  D  |  V  |   |  K  |  H   |  ,  |  .  |  /  |     |
             //                    | ESC | SPC | TAB |   | ENT | BKSP | DEL |
             // -----------------------------------------------------------------------------------------
-            // |      | RMETA | RALT | RSHFT | RCTRL | BLUE |   |      | RCTRL | RSHFT | RALT | RMETA |   |
+            // |      | RMETA | RALT | RSHFT | RCTRL | BLUE |   |      | RCTRL | RSHFT | RALT | NORW |   |
             // |      | LMETA | LALT | LSHFT | LCTRL | CODE |   | CODE | LCTRL | LSHFT | LALT | LMETA |   |
             // |      |       |      |       |       | FUNC |   |      |       |       |      | MEDIA |   |
             //                       |       | NUMB  | NAVI |   | SYMB |       |       |
 
             bindings = <
-&none      &mt RGUI Q  &mt RALT W  &mt RSHFT F  &mt RCTRL P     &lt BLUE B      &kp J         &mt RCTRL L  &mt RSHFT O  &mt RALT Y  &mt RMETA SQT   &none
+&none      &mt RGUI Q  &mt RALT W  &mt RSHFT F  &mt RCTRL P     &lt BLUE B      &kp J         &mt RCTRL L  &mt RSHFT O  &mt RALT Y  &lt NORW SQT   &none
 &kp BSPC   &mt LGUI A  &mt LALT R  &mt LSHFT S  &mt LCTRL T     &lt CODE G      &lt CODE M    &mt LCTRL N  &mt LSHFT E  &mt LALT I  &mt LMETA U     &none
 &kp LSHFT  &kp Z       &kp X       &kp C        &kp D           &lt FUNC V      &kp K         &kp H        &kp COMMA    &kp DOT     &lt MEDI SLASH  &none
                                    &kp ESCAPE   &lt NUMB SPACE  &lt NAVI TAB    &lt SYMB RET  &kp BSPC     &kp DEL
@@ -259,6 +259,18 @@
         };
 
         norway_layer {
+            // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+
+            label = "NORW";
+            display-name = "Norway";
+
+            // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+            // -----------------------------------------------------------------------------------------
+            // |    |     |     |     |     |     |   |     |     |     |     |     |      |
+            // |    |     |     |     |     |     |   |     |     |     |     |     |      |
+            // |    |     |     |     |     |     |   |     |     |     |     |     |      |
+            //                 | BASE |     |     |   |     |     |     |
+        
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans     &trans     &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &kp RA(A)  &kp RA(O)  &trans  &trans
