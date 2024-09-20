@@ -17,8 +17,8 @@
 #define MEDI 6
 #define BLUE 7
 #define TILE 8
-#define TSIZ 9
-#define NORW 10
+#define NORW 9s
+#define TSIZ 10
 #define SELC 11
 #define TERM 12
 #define QWER 13
@@ -255,6 +255,27 @@
 &trans  &trans  &trans  &trans  &trans  &trans    &none       &bt BT_SEL 4  &none         &none         &none  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &none       &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &none  &trans
                         &to 0   &trans  &trans    &none       &bt BT_SEL 0  &none
+            >;
+        };
+
+        tile_layer {
+            // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+
+            label = "TILE";
+            display-name = "Tiling";
+
+            // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+            // -----------------------------------------------------------------------------------------
+            // |    |     |     |     |     |     |   |     |     |     |     |     |      |
+            // |    |     |     |     |     |     |   |     |     |     |     |     |      |
+            // |    |     |     |     |     |     |   |     |     |     |     |     |      |
+            //                 | BASE |     |     |   |     |     |     |
+        
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans     &trans     &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans     &trans     &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans     &trans     &trans  &trans
+                        &to 0   &trans  &trans    &trans  &trans  &trans
             >;
         };
 
