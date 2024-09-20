@@ -17,7 +17,7 @@
 #define MEDI 6
 #define BLUE 7
 #define TILE 8
-#define NORW 9s
+#define NORW 9
 #define TSIZ 10
 #define SELC 11
 #define TERM 12
