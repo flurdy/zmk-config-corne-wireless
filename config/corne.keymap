@@ -115,10 +115,10 @@
             //                        | BASE |        |     |   |     |      |      |
 
             bindings = <
-&none   &none          &none          &none            &none            &none     &kp LC(HOME)  &kp HOME  &kp UP    &kp END      &kp PAGE_UP    &none
-&none   &mt LGUI LC(A) &mt LALT LC(R) &mt LSHFT LC(S)  &mt LCTRL LC(T)  &none     &none         &kp LEFT  &kp DOWN  &kp RIGHT    &kp PAGE_DOWN  &none
-&trans  &none          &none          &none            &none            &none     &none         &trans    &trans    &kp LC(END)  &trans         &none
-                                      &to BASE         &none            &none     &trans        &trans    &trans
+&none   &none           &none           &none            &none            &none    &kp LC(HOME)  &kp HOME  &kp UP    &kp END      &kp PAGE_UP    &none
+&none   &mt LGUI LC(A)  &mt LALT LC(R)  &mt LSHFT LC(S)  &mt LCTRL LC(T)  &none    &none         &kp LEFT  &kp DOWN  &kp RIGHT    &kp PAGE_DOWN  &none
+&trans  &none           &none           &none            &none            &none    &none         &trans    &trans    &kp LC(END)  &trans         &none
+                                        &to BASE         &none            &none    &trans        &trans    &trans
             >;
         };
 
@@ -138,10 +138,10 @@
             //                 | BASE |     |     |    |     |     |     |
 
             bindings = <
-&trans  &kp LS(LA(0))      &kp HASH      &kp LS(NUMBER_3)  &kp RA(NUMBER_4)  &kp RA(Z)   &kp RA(X)  &kp RCTRL     &kp RSHIFT       &kp RALT       &kp RGUI    &none
-&trans  &mt LGUI LS(NUBS)  &mt LALT DQT  &mt LSHFT UNDER   &mt LCTRL GRAVE   &kp LPAR    &kp RPAR   &mt LCTRL AT  &mt LSHFT COLON  &mt LALT SEMI  &kp LGUI    &none
-&trans  &kp NUBS           &kp PIPE      &kp AMPS          &kp DLLR          &kp LBRC    &kp RBRC   &none         &none            &kp RA(LSHFT)   &kp QMARK  &none
-                                         &to BASE          &trans            &trans      &trans     &trans        &trans
+&trans  &kp LS(LA(0))      &kp HASH      &kp LS(NUMBER_3)  &kp RA(NUMBER_4)  &kp RA(Z)    &kp RA(X)  &kp RCTRL     &kp RSHIFT       &kp RALT       &kp RGUI   &none
+&trans  &mt LGUI LS(NUBS)  &mt LALT DQT  &mt LSHFT UNDER   &mt LCTRL GRAVE   &kp LPAR     &kp RPAR   &mt LCTRL AT  &mt LSHFT COLON  &mt LALT SEMI  &kp LGUI   &none
+&trans  &kp NUBS           &kp PIPE      &kp AMPS          &kp DLLR          &kp LBRC     &kp RBRC   &none         &none            &kp RA(LSHFT)  &kp QMARK  &none
+                                         &to BASE          &trans            &trans       &trans     &trans        &trans
             >;
         };
 
@@ -161,10 +161,10 @@
             //                | BASE |     |     |   |     |     |     |
 
             bindings = <
-&none   &kp N1            &kp N2          &kp N3           &kp N4          &kp N5            &kp N6             &kp N7  &kp N8  &kp N9  &kp N0     &none
-&none   &mt LMETA LS(N1)  &mt LALT EQUAL  &mt LSHFT MINUS  &mt LCTRL PLUS  &kp LT            &kp GT             &kp N4  &kp N5  &kp N6  &kp COMMA  &none
-&trans  &none             &none           &kp PERCENT      &kp STAR        &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp N1  &kp N2  &kp N3  &kp DOT    &none
-                          &to BASE        &trans           &trans                            &trans             &kp N0  &kp N0
+&none   &kp N1            &kp N2          &kp N3           &kp N4          &kp N5              &kp N6             &kp N7  &kp N8  &kp N9  &kp N0     &none
+&none   &mt LMETA LS(N1)  &mt LALT EQUAL  &mt LSHFT MINUS  &mt LCTRL PLUS  &kp LT              &kp GT             &kp N4  &kp N5  &kp N6  &kp COMMA  &none
+&trans  &none             &none           &kp PERCENT      &kp STAR        &kp LEFT_BRACKET    &kp RIGHT_BRACKET  &kp N1  &kp N2  &kp N3  &kp DOT    &none
+                                          &to BASE         &trans          &trans              &trans             &kp N0  &kp N0
             >;
         };
 
@@ -228,9 +228,9 @@
             //                 | BASE |     |     |   |     |     |     |
 
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans      &kp K_VOL_UP    &none
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans      &kp K_VOL_DOWN  &none
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &kp C_MUTE  &trans          &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans      &kp C_VOL_UP  &none
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans      &kp C_VOL_DN  &none
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &kp K_MUTE  &trans        &trans
                         &to 0   &trans  &trans    &trans  &trans  &trans
             >;
         };
@@ -249,7 +249,7 @@
             // |    |     |     |     |     |     |   |     |        | BT 4 |      |      |      |
             // |    |     |     |     |     |     |   |     |        | BT 1 | BT 2 | BT 3 |      |
             //                 | BASE |     |     |   |     |        | BT 0 |
-               
+
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans    &bt BT_CLR  &none         &none         &none         &none  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &none       &bt BT_SEL 4  &none         &none         &none  &trans
