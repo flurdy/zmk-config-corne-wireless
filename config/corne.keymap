@@ -66,7 +66,19 @@
 
             hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38>;
         };
-    };
+    };  
+
+    macros {
+        vsc: macro_vscode_cmd {
+            #binding-cells = <1>;
+            compatible = "zmk,behavior-macro-one-param";
+            bindings =
+                <&macro_tap>,
+                <&kp LA(K) &macro_param_1to1>,
+                <&macro_tap>,
+                <&kp MACRO_PLACEHOLDER>;
+        };
+    };  
 
     keymap {
         compatible = "zmk,keymap";
@@ -201,16 +213,16 @@
 
             // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
             // -----------------------------------------------------------------------------------------
-            // |    |     |     |     |     |     |   |     |     |     |     |     |      |
-            // |    |     |     |     |     |     |   |     |     |     |     |     |      |
-            // |    |     |     |     |     |     |   |     |     |     |     |     |      |
-            //                 | BASE |     |     |   |     |     |     |
+            // |    |     |     |      |       |      |   | Impl |     |  DUPE UP  |     |     |      |
+            // |    |     |     | SAVE |       |      |   |      |     | DUPE DOWN |     |     |      |
+            // |    |     |     |      | MVTRM | TERM |   |      |     |           |     |     |      |
+            //                  | BASE |       |      |   |      |     |           |
 
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &to 0   &trans  &trans    &trans  &trans  &trans
+&trans        &trans  &trans  &trans  &trans             &trans          &kp F12  &trans  &kp LC(LA(LS(UP)))    &trans  &trans        &trans
+&trans        &trans  &trans  &vcs S  &trans             &trans          &trans   &trans  &kp LC(LA(LS(DOWN)))  &trans  &trans        &trans
+&kp LC(BSLH)  &vcs Z  &trans  &trans  &kp LC(LA(LS(E)))  &kp LC(GRAVE)   &trans   &trans  &trans                &trans  &kp LC(FSLH)  &trans
+                              &to 0   &trans             &trans          &trans   &trans  &trans
             >;
         };
 
