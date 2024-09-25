@@ -20,9 +20,9 @@
 #define NORW 9
 #define TSIZ 10
 #define SELC 11
-#define TERM 12
-#define QWER 13
-#define GAME 14
+#define GAME 12
+#define TERM 13
+#define QWER 14
 #define CSPL 15
 
 &mt {
@@ -95,7 +95,7 @@
 &none      &mt RGUI Q  &mt RALT W           &mt RSHFT F  &mt RCTRL P     &lt BLUE B      &kp J         &mt RCTRL L  &mt RSHFT O  &mt RALT Y             &lt NORW SQT    &none
 &kp BSPC   &mt LGUI A  &mt LALT R           &mt LSHFT S  &mt LCTRL T     &lt CODE G      &lt CODE M    &mt LCTRL N  &mt LSHFT E  &mt LALT I             &mt LMETA U     &none
 &kp LSHFT  &kp Z       &mt LS(RIGHT_ALT) X  &kp C        &lt TILE D      &lt FUNC V      &lt 3 K       &kp H        &kp COMMA    &mt LS(RIGHT_ALT) DOT  &lt MEDI SLASH  &none
-                                            &kp ESCAPE   &lt NUMB SPACE  &lt NAVI TAB    &lt SYMB RET  &lt 1 BSPC   &kp DEL
+                                            &kp ESCAPE   &lt NUMB SPACE  &lt NAVI TAB    &lt SYMB RET  &lt NAVI BSPC   &kp DEL
             >;
         };
 
@@ -112,13 +112,13 @@
             // |      |      |        |      |        |     |   | TOP | HOME |  UP  |  END  | PGUP |     |
             // |      |  SEL | RELOAD | SAVE | NEWTAB |     |   |     | LEFT | DOWN |  RGT  | PGDN |     |
             // |      |      |        |      |        |     |   |     |      |      |  BTTM |      |     |
-            //                        | BASE |        |     |   |     |      |      |
+            //                        | BASE |        |     |   |     |      |  SEL |
 
             bindings = <
 &none   &none           &none           &none            &none            &none            &kp LC(HOME)  &kp HOME  &kp UP    &kp END      &kp PAGE_UP    &none
 &none   &mt LGUI LC(A)  &mt LALT LC(R)  &mt LSHFT LC(S)  &mt LCTRL LC(T)  &none            &none         &kp LEFT  &kp DOWN  &kp RIGHT    &kp PAGE_DOWN  &none
 &trans  &kp LC(Z)       &kp LC(X)       &kp LC(C)        &kp LC(V)        &kp LC(LS(Z))    &none         &trans    &trans    &kp LC(END)  &trans         &none
-                                        &to BASE         &none            &none            &trans        &trans    &trans
+                                        &to BASE         &none            &none            &trans        &trans    &mo SELC
             >;
         };
 
@@ -167,6 +167,8 @@
                                           &to BASE         &trans          &trans              &trans             &kp N0  &kp N0
             >;
         };
+
+        // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
         function_layer {
             // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
@@ -257,6 +259,8 @@
                         &to 0   &trans  &trans    &none       &bt BT_SEL 0  &none
             >;
         };
+        
+        // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
         tile_layer {
             // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
@@ -275,9 +279,11 @@
 &trans  &kp LG(LC(ESC))  &trans     &trans     &kp LG(LS(GRAVE))  &kp LG(GRAVE)    &trans  &kp LG(HOME)  &kp LG(UP)    &kp LG(END)    &kp LG(PAGE_UP)    &trans
 &trans  &trans           &trans     &trans     &trans             &trans           &trans  &kp LG(LEFT)  &kp LG(DOWN)  &kp LG(RIGHT)  &kp LG(PAGE_DOWN)  &trans
 &trans  &kp LEFT_ALT     &kp LSHFT  &kp LCTRL  &trans             &trans           &trans  &trans        &trans        &trans         &trans             &trans
-                                    &to 0      &trans             &trans           &trans  &trans        &trans
+                                    &to 0      &trans             &trans           &trans  &trans        &mo TSIZ
             >;
         };
+        
+        // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
         norway_layer {
             // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
@@ -299,5 +305,82 @@
                         &to 0   &trans  &trans    &trans  &trans  &trans
             >;
         };
+
+        // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+
+        tilesize_layer {
+            // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+
+            label = "TSIZ";
+            display-name = "TileSize";
+
+            // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+            // -----------------------------------------------------------------------------------------
+            // |    |     |     |     |     |     |   |     |           | SIZE UP   |           |     |      |
+            // |    |     |     |     |     |     |   |     | SIZE LEFT | SIZE DOWN | SIZERIGHT |     |      |
+            // |    |     |     |     |     |     |   |     |           |           |           |     |      |
+            //                 | BASE |     |     |   |     |           |           |
+
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans        &kp LG(LS(EQUAL))  &trans        &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LG(EQUAL) &kp LG(LS(MINUS))  &kp LG(EQUAL) &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans        &trans             &trans        &trans  &trans
+                        &to 0   &trans  &trans    &trans  &trans        &trans
+            >;
+        };
+
+        // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+
+        select_layer {
+            // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+
+            label = "SELC";
+            display-name = "Select";
+
+            // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+            // -----------------------------------------------------------------------------------------
+            // |    |     |     |     |     |     |   | SELTOP | SELHOME |  | SELEND   | SELBTTM |      |
+            // |    |     |     |     |     |     |   |        | SELLEFT |  | SELRIGHT |         |      |
+            // |    |     |     |     |     |     |   |        |         |  |          |         |      |
+            //                 | BASE |     |     |   |        |         |  |
+
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans    &kp LC(LS(HOME)) &kp LC(HOME)      &trans  &kp LC(END)    &kp LC(LS(END))  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans           &kp LC(LS(LEFT))  &trans  &kp LC(RIGHT)  &trans           &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans           &trans            &trans  &trans         &trans           &trans
+                        &to 0   &trans  &trans    &trans           &trans            &trans
+            >;
+        };
+
+        // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+
+        game_layer {
+            // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+
+            label = "GAME";
+            display-name = "Game";
+
+            // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+            // -----------------------------------------------------------------------------------------
+            // |      |  Q  |  W  |  F  |  P  |  B  |   |  J  |  L   |  O  |  Y  |  '  |     |
+            // | BKSP |  A  |  R  |  S  |  T  |  G  |   |  M  |  N   |  E  |  I  |  U  |     |
+            // | SHFT |  Z  |  X  |  C  |  D  |  V  |   |  K  |  H   |  ,  |  .  |  /  |     |
+            //                    | ESC | SPC | TAB |   | ENT | BKSP | DEL |
+            // -----------------------------------------------------------------------------------------
+            // |      | RMETA | RALT | RSHFT | RCTRL | BLUE |   |      | RCTRL | RSHFT | RALT | NORW |   |
+            // |      | LMETA | LALT | LSHFT | LCTRL | CODE |   | CODE | LCTRL | LSHFT | LALT | LMETA |   |
+            // |      |       |      |       |       | FUNC |   |      |       |       |      | MEDIA |   |
+            //                       |       | NUMB  | NAVI |   | SYMB |       |       |
+
+            bindings = <
+&none      &kp Q  &kp W  &kp F  &kp P  &kp B      &kp J  &kp L  &kp O      &kp Y    &kp SQT    &none
+&kp BSPC   &kp A  &kp R  &kp S  &kp T  &kp G      &kp M  &kp N  &kp E      &kp I    &kp U      &none
+&kp LSHFT  &kp Z  &kp X  &kp C  &lt D  &kp V      &kp K  &kp H  &kp COMMA  &kp DOT  &kp SLASH  &none
+          &kp ESCAPE  &kp SPACE  &lt NAVI TAB    &kp RET  &lt NAVI BSPC   &kp DEL
+            >;
+        };
+
+        // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+
     };
 };
