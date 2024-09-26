@@ -219,10 +219,10 @@
             //                  | BASE |       |      |   |      |     |           |
 
             bindings = <
-&trans        &trans  &trans  &trans  &trans             &trans          &kp F12  &trans  &kp LC(LA(LS(UP)))    &trans  &trans        &trans
-&trans        &trans  &trans  &vcs S  &trans             &trans          &trans   &trans  &kp LC(LA(LS(DOWN)))  &trans  &trans        &trans
-&kp LC(BSLH)  &vcs Z  &trans  &trans  &kp LC(LA(LS(E)))  &kp LC(GRAVE)   &trans   &trans  &trans                &trans  &kp LC(FSLH)  &trans
-                              &to 0   &trans             &trans          &trans   &trans  &trans
+&trans        &trans  &trans  &trans     &trans             &trans          &kp F12  &trans  &kp LC(LA(LS(UP)))    &trans  &trans        &trans
+&trans        &trans  &trans  &kp LC(S)  &trans             &trans          &trans   &trans  &kp LC(LA(LS(DOWN)))  &trans  &trans        &trans
+&kp LC(BSLH)  &vcs Z  &trans  &trans     &kp LC(LA(LS(E)))  &kp LC(GRAVE)   &trans   &trans  &trans                &trans  &kp LC(FSLH)  &trans
+                              &to 0      &trans             &trans          &trans   &trans  &trans
             >;
         };
 
