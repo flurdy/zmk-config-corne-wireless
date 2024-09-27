@@ -48,11 +48,7 @@
             tapping-term-ms = <100>;
             quick-tap-ms = <200>;
             flavor = "tap-unless-interrupted";
-
-            //      flavor = "tap-preferred";
-
             bindings = <&kp>, <&kp>;
-
             hold-trigger-key-positions = <6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 39 40 41>;
         };
 
@@ -70,13 +66,12 @@
 
     macros {
         vsc: macro_vscode_cmd {
-            #binding-cells = <1>;
             compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
             bindings =
-                <&macro_tap>,
-                <&kp LA(K) &macro_param_1to1>,
-                <&macro_tap>,
-                <&kp MACRO_PLACEHOLDER>;
+                <&macro_tap &kp LC(K)>
+                <&macro_param_1to1>,
+                <&macro_tap &kp MACRO_PLACEHOLDER>;
         };
     };  
 
@@ -220,8 +215,8 @@
 
             bindings = <
 &trans        &trans  &trans  &trans     &trans             &trans          &kp F12  &trans  &kp LC(LA(LS(UP)))    &trans  &trans        &trans
-&trans        &trans  &trans  &kp LC(S)  &trans             &trans          &trans   &trans  &kp LC(LA(LS(DOWN)))  &trans  &trans        &trans
-&kp LC(BSLH)  &vcs Z  &trans  &trans     &kp LC(LA(LS(E)))  &kp LC(GRAVE)   &trans   &trans  &trans                &trans  &kp LC(FSLH)  &trans
+&trans        &trans  &trans  &vsc S     &trans             &trans          &trans   &trans  &kp LC(LA(LS(DOWN)))  &trans  &trans        &trans
+&kp LC(BSLH)  &vsc Z  &trans  &trans     &kp LC(LA(LS(E)))  &kp LC(GRAVE)   &trans   &trans  &trans                &trans  &kp LC(FSLH)  &trans
                               &to 0      &trans             &trans          &trans   &trans  &trans
             >;
         };
