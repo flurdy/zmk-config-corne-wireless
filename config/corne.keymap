@@ -63,6 +63,15 @@
 
             hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38>;
         };
+
+        td_caps: td_caps {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_CAPS";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_SHIFT>, <&caps_word>;
+
+            tapping-term-ms = <100>;
+        };
     };
 
     macros {
@@ -109,10 +118,10 @@
             //                       |       | NUMB  | NAVI |   | SYMB |       |       |
 
             bindings = <
-&none      &mt RGUI Q  &mt RALT W           &mt RSHFT F  &mt RCTRL P     &lt BLUE B      &kp J         &mt RCTRL L    &mt RSHFT O  &mt RALT Y             &lt NORW SQT    &none
-&kp BSPC   &mt LGUI A  &mt LALT R           &mt LSHFT S  &mt LCTRL T     &lt CODE G      &lt CODE M    &mt LCTRL N    &mt LSHFT E  &mt LALT I             &mt LMETA U     &none
-&kp LSHFT  &kp Z       &mt LS(RIGHT_ALT) X  &kp C        &lt TILE D      &lt FUNC V      &lt 3 K       &kp H          &kp COMMA    &mt LS(RIGHT_ALT) DOT  &lt MEDI SLASH  &none
-                                            &kp ESCAPE   &lt NUMB SPACE  &lt NAVI TAB    &lt SYMB RET  &lt NAVI BSPC  &kp DEL
+&none     &mt RGUI Q  &mt RALT W           &mt RSHFT F  &mt RCTRL P     &lt BLUE B      &kp J         &mt RCTRL L    &mt RSHFT O  &mt RALT Y             &lt NORW SQT    &none
+&kp BSPC  &mt LGUI A  &mt LALT R           &mt LSHFT S  &mt LCTRL T     &lt 8 G         &lt CODE M    &mt LCTRL N    &mt LSHFT E  &mt LALT I             &mt LMETA U     &none
+&td_caps  &kp Z       &mt LS(RIGHT_ALT) X  &kp C        &lt 5 D         &lt FUNC V      &lt 3 K       &lt 5 H        &kp COMMA    &mt LS(RIGHT_ALT) DOT  &lt MEDI SLASH  &none
+                                           &kp ESCAPE   &lt NUMB SPACE  &lt NAVI TAB    &lt SYMB RET  &lt NAVI BSPC  &kp DEL
             >;
         };
 
@@ -155,10 +164,10 @@
             //                 | BASE |     |     |    |     |     |     |
 
             bindings = <
-&trans  &kp LS(RA(N0))     &kp HASH      &kp LS(NUMBER_3)  &kp RA(NUMBER_4)  &kp RA(Z)    &kp RA(X)  &kp LS(N6)    &kp RSHIFT       &kp RALT       &kp RGUI   &none
-&trans  &mt LGUI LS(NUBS)  &mt LALT DQT  &mt LSHFT UNDER   &mt LCTRL GRAVE   &kp LPAR     &kp RPAR   &mt LCTRL AT  &mt LSHFT COLON  &mt LALT SEMI  &kp LGUI   &none
-&trans  &kp NUBS           &kp PIPE      &kp AMPS          &kp DLLR          &kp LBRC     &kp RBRC   &none         &none            &kp RA(LSHFT)  &kp QMARK  &none
-                                         &to BASE          &trans            &trans       &trans     &trans        &trans
+&trans  &kp LS(RA(N0))     &kp HASH      &kp LS(NUMBER_3)     &kp RA(NUMBER_4)  &kp RA(Z)    &kp RA(X)  &kp LS(N6)    &kp RSHIFT       &kp RALT       &kp RGUI   &none
+&trans  &mt LGUI LS(NUBS)  &mt LALT DQT  &mt LSHFT LS(MINUS)  &mt LCTRL GRAVE   &kp LPAR     &kp RPAR   &mt LCTRL AT  &mt LSHFT COLON  &mt LALT SEMI  &kp LGUI   &none
+&trans  &kp NUBS           &kp PIPE      &kp AMPS             &kp DLLR          &kp LBRC     &kp RBRC   &none         &none            &kp RA(LSHFT)  &kp QMARK  &none
+                                         &to BASE             &trans            &trans       &trans     &trans        &trans
             >;
         };
 
@@ -224,10 +233,10 @@
             //                  | BASE |       |      |   |      |     |           |
 
             bindings = <
-&trans        &trans  &trans  &trans  &trans             &trans           &kp F12  &trans  &kp LC(LA(LS(UP)))    &trans  &trans        &trans
-&trans        &trans  &trans  &vsc S  &trans             &trans           &trans   &trans  &kp LC(LA(LS(DOWN)))  &trans  &trans        &trans
-&kp LC(BSLH)  &vsc Z  &trans  &trans  &kp LC(LA(LS(E)))  &kp LC(GRAVE)    &trans   &trans  &trans                &trans  &kp LC(FSLH)  &trans
-                              &to 0   &trans             &trans           &trans   &trans  &trans
+&trans        &trans  &trans  &trans  &trans             &trans               &kp F12  &trans  &kp LC(LA(LS(UP)))    &trans  &trans        &trans
+&trans        &trans  &trans  &vsc S  &trans             &kp LS(LA(LC(E)))    &trans   &trans  &kp LC(LA(LS(DOWN)))  &trans  &trans        &trans
+&kp LC(BSLH)  &vsc Z  &trans  &trans  &kp LC(LA(LS(E)))  &kp LC(GRAVE)        &trans   &trans  &trans                &trans  &kp LC(FSLH)  &trans
+                              &to 0   &trans             &trans               &trans   &trans  &trans
             >;
         };
 
