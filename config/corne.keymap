@@ -75,6 +75,14 @@
                 <&macro_tap>,
                 <&kp MACRO_PLACEHOLDER>;
         };
+
+        nor_aa: nor_aa {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap>, <&kp LS(RA(LEFT_BRACKET)) &kp A>;
+
+            label = "NOR_AA";
+        };
     };
 
     keymap {
@@ -147,7 +155,7 @@
             //                 | BASE |     |     |    |     |     |     |
 
             bindings = <
-&trans  &kp LS(LA(0))      &kp HASH      &kp LS(NUMBER_3)  &kp RA(NUMBER_4)  &kp RA(Z)    &kp RA(X)  &kp RCTRL     &kp RSHIFT       &kp RALT       &kp RGUI   &none
+&trans  &kp LS(RA(N0))     &kp HASH      &kp LS(NUMBER_3)  &kp RA(NUMBER_4)  &kp RA(Z)    &kp RA(X)  &kp LS(N6)    &kp RSHIFT       &kp RALT       &kp RGUI   &none
 &trans  &mt LGUI LS(NUBS)  &mt LALT DQT  &mt LSHFT UNDER   &mt LCTRL GRAVE   &kp LPAR     &kp RPAR   &mt LCTRL AT  &mt LSHFT COLON  &mt LALT SEMI  &kp LGUI   &none
 &trans  &kp NUBS           &kp PIPE      &kp AMPS          &kp DLLR          &kp LBRC     &kp RBRC   &none         &none            &kp RA(LSHFT)  &kp QMARK  &none
                                          &to BASE          &trans            &trans       &trans     &trans        &trans
@@ -170,10 +178,10 @@
             //                | BASE |     |     |   |     |     |     |
 
             bindings = <
-&none   &kp N1            &kp N2          &kp N3           &kp N4          &kp N5              &kp N6             &kp N7  &kp N8  &kp N9  &kp N0     &none
-&none   &mt LMETA LS(N1)  &mt LALT EQUAL  &mt LSHFT MINUS  &mt LCTRL PLUS  &kp LT              &kp GT             &kp N4  &kp N5  &kp N6  &kp COMMA  &none
-&trans  &none             &none           &kp PERCENT      &kp STAR        &kp LEFT_BRACKET    &kp RIGHT_BRACKET  &kp N1  &kp N2  &kp N3  &kp DOT    &none
-                                          &to BASE         &trans          &trans              &trans             &kp N0  &kp N0
+&none   &mt RIGHT_GUI N1  &mt RIGHT_ALT NUMBER_2  &mt RIGHT_SHIFT NUMBER_3  &mt RCTRL N4    &kp N5              &kp N6             &kp N7              &kp N8             &kp N9           &kp N0     &none
+&none   &mt LMETA EXCL    &mt LALT EQUAL          &mt LSHFT MINUS           &mt LCTRL PLUS  &kp LT              &kp GT             &mt LCTRL NUMBER_4  &mt LEFT_SHIFT N5  &mt LEFT_ALT N6  &kp COMMA  &none
+&trans  &none             &kp RS(RIGHT_ALT)       &kp PERCENT               &kp STAR        &kp LEFT_BRACKET    &kp RIGHT_BRACKET  &kp N1              &kp N2             &kp N3           &kp DOT    &none
+                                                  &to BASE                  &trans          &trans              &trans             &kp N0              &kp N0
             >;
         };
 
@@ -263,9 +271,9 @@
 
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans    &bt BT_CLR  &none         &none         &none         &none  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &none       &bt BT_SEL 4  &none         &none         &none  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &none       &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &none  &trans
-                        &to 0   &trans  &trans    &none       &bt BT_SEL 0  &none
+&trans  &trans  &trans  &trans  &trans  &trans    &none       &bt BT_SEL 3  &bt BT_SEL 4  &none         &none  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &none       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &none  &trans
+                        &to 0   &trans  &trans    &none       &none         &none
             >;
         };
 
@@ -308,7 +316,7 @@
             //                 | BASE |     |     |   |     |     |     |
 
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans     &trans     &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans     &nor_aa    &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &kp RA(A)  &kp RA(O)  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans     &trans     &trans  &trans
                         &to 0   &trans  &trans    &trans  &trans  &trans
