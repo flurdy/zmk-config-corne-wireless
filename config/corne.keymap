@@ -120,7 +120,7 @@
             bindings = <
 &none     &mt RGUI Q  &mt RALT W           &mt RSHFT F  &mt RCTRL P     &lt BLUE B      &kp J         &mt RCTRL L    &mt RSHFT O  &mt RALT Y             &lt NORW SQT    &none
 &kp BSPC  &mt LGUI A  &mt LALT R           &mt LSHFT S  &mt LCTRL T     &lt 8 G         &lt CODE M    &mt LCTRL N    &mt LSHFT E  &mt LALT I             &mt LMETA U     &none
-&td_caps  &kp Z       &mt LS(RIGHT_ALT) X  &kp C        &lt 5 D         &lt FUNC V      &lt 3 K       &lt 5 H        &kp COMMA    &mt LS(RIGHT_ALT) DOT  &lt MEDI SLASH  &none
+&td_caps  &kp Z       &mt LS(RIGHT_ALT) X  &kp C        &lt 5 D         &lt FUNC V      &lt 3 K       &kp H          &kp COMMA    &mt LS(RIGHT_ALT) DOT  &lt MEDI SLASH  &none
                                            &kp ESCAPE   &lt NUMB SPACE  &lt NAVI TAB    &lt SYMB RET  &lt NAVI BSPC  &kp DEL
             >;
         };
@@ -187,9 +187,9 @@
             //                | BASE |     |     |   |     |     |     |
 
             bindings = <
-&none   &mt RIGHT_GUI N1  &mt RIGHT_ALT NUMBER_2  &mt RIGHT_SHIFT NUMBER_3  &mt RCTRL N4    &kp N5              &kp N6             &kp N7              &kp N8             &kp N9           &kp N0     &none
-&none   &mt LMETA EXCL    &mt LALT EQUAL          &mt LSHFT MINUS           &mt LCTRL PLUS  &kp LT              &kp GT             &mt LCTRL NUMBER_4  &mt LEFT_SHIFT N5  &mt LEFT_ALT N6  &kp COMMA  &none
-&trans  &none             &kp RS(RIGHT_ALT)       &kp PERCENT               &kp STAR        &kp LEFT_BRACKET    &kp RIGHT_BRACKET  &kp N1              &kp N2             &kp N3           &kp DOT    &none
+&none   &mt RIGHT_GUI N1  &mt RIGHT_ALT NUMBER_2  &mt RIGHT_SHIFT NUMBER_3  &mt RCTRL N4    &kp N5              &kp N6             &kp N7              &kp N8             &kp N9           &kp N0              &none
+&none   &mt LMETA EXCL    &mt LALT EQUAL          &mt LSHFT MINUS           &mt LCTRL PLUS  &kp LT              &kp GT             &mt LCTRL NUMBER_4  &mt LEFT_SHIFT N5  &mt LEFT_ALT N6  &mt LEFT_GUI COMMA  &none
+&trans  &none             &kp RS(RIGHT_ALT)       &kp PERCENT               &kp STAR        &kp LEFT_BRACKET    &kp RIGHT_BRACKET  &kp N1              &kp N2             &kp N3           &kp DOT             &none
                                                   &to BASE                  &trans          &trans              &trans             &kp N0              &kp N0
             >;
         };
