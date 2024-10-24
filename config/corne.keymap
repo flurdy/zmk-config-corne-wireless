@@ -302,10 +302,10 @@
             //                 | BASE |     |     |   |     |     |     |
 
             bindings = <
-&trans  &kp LG(LC(ESC))  &trans     &trans     &kp LG(LS(GRAVE))  &kp LG(GRAVE)    &trans  &kp LG(HOME)  &kp LG(UP)    &kp LG(END)    &kp LG(PAGE_UP)    &trans
-&trans  &trans           &trans     &trans     &trans             &trans           &trans  &kp LG(LEFT)  &kp LG(DOWN)  &kp LG(RIGHT)  &kp LG(PAGE_DOWN)  &trans
-&trans  &kp LEFT_ALT     &kp LSHFT  &kp LCTRL  &trans             &trans           &trans  &trans        &trans        &trans         &trans             &trans
-                                    &to 0      &trans             &trans           &trans  &trans        &mo TSIZ
+&trans  &kp LG(LC(ESC))  &trans  &trans  &kp LG(LS(GRAVE))  &kp LG(GRAVE)    &trans  &kp LG(HOME)  &kp LG(UP)    &kp LG(END)    &kp LG(PAGE_UP)    &trans
+&trans  &trans           &trans  &trans  &trans             &trans           &trans  &kp LG(LEFT)  &kp LG(DOWN)  &kp LG(RIGHT)  &kp LG(PAGE_DOWN)  &trans
+&trans  &none            &none   &none   &trans             &trans           &trans  &trans        &trans        &trans         &trans             &trans
+                                 &to 0   &trans             &trans           &trans  &trans        &mo TSIZ
             >;
         };
 
@@ -371,10 +371,10 @@
             //                 | BASE |     |     |   |        |         |  |
 
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &kp LC(LS(HOME))  &kp LC(HOME)      &trans  &kp LC(END)    &kp LC(LS(END))  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans            &kp LC(LS(LEFT))  &trans  &kp LC(RIGHT)  &trans           &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans            &trans            &trans  &trans         &trans           &trans
-                        &to 0   &trans  &trans    &trans            &trans            &trans
+&trans  &trans  &trans             &trans  &trans       &trans    &kp LC(LS(HOME))  &kp LS(HOME)      &trans  &kp LS(END)    &kp LC(LS(END))  &trans
+&trans  &trans  &kp LC(BACKSPACE)  &trans  &kp LC(DEL)  &trans    &trans            &kp LC(LS(LEFT))  &trans  &kp LC(RIGHT)  &trans           &trans
+&trans  &trans  &trans             &trans  &trans       &trans    &trans            &trans            &trans  &trans         &trans           &trans
+                                   &to 0   &trans       &trans    &trans            &trans            &trans
             >;
         };
 
