@@ -164,10 +164,10 @@
             //                 | BASE |     |     |    |     |     |     |
 
             bindings = <
-&trans  &kp LS(RA(N0))     &kp HASH      &kp LS(NUMBER_3)     &kp RA(NUMBER_4)  &kp RA(Z)    &kp RA(X)  &kp LS(N6)    &kp RSHIFT       &kp RALT       &kp RGUI   &none
-&trans  &mt LGUI LS(NUBS)  &mt LALT DQT  &mt LSHFT LS(MINUS)  &mt LCTRL GRAVE   &kp LPAR     &kp RPAR   &mt LCTRL AT  &mt LSHFT COLON  &mt LALT SEMI  &kp LGUI   &none
-&trans  &kp NUBS           &kp PIPE      &kp AMPS             &kp DLLR          &kp LBRC     &kp RBRC   &none         &none            &kp RA(LSHFT)  &kp QMARK  &none
-                                         &to BASE             &trans            &trans       &trans     &trans        &trans
+&trans  &kp LS(RA(N0))     &kp HASH      &kp LS(NUMBER_3)     &kp RA(NUMBER_4)  &kp RA(Z)     &kp RA(X)  &kp LS(N6)    &kp RSHIFT       &kp RALT       &kp RGUI   &none
+&trans  &mt LGUI LS(NUBS)  &mt LALT DQT  &mt LSHFT LS(MINUS)  &mt LCTRL GRAVE   &kp LPAR      &kp RPAR   &mt LCTRL AT  &mt LSHFT COLON  &mt LALT SEMI  &kp LGUI   &none
+&trans  &kp NUBS           &kp PIPE      &kp AMPS             &kp DLLR          &kp LBRC      &kp RBRC   &none         &none            &kp RA(LSHFT)  &kp QMARK  &none
+                                         &to BASE             &trans            &caps_word    &trans     &trans        &trans
             >;
         };
 
@@ -236,7 +236,7 @@
 &trans        &to 12  &trans  &trans  &trans             &trans               &kp LS(F12)    &trans     &kp LC(LA(LS(UP)))    &trans  &trans        &trans
 &trans        &trans  &trans  &vsc S  &trans             &kp LS(LA(LC(E)))    &trans         &trans     &kp LC(LA(LS(DOWN)))  &trans  &trans        &trans
 &kp LC(BSLH)  &vsc Z  &trans  &mo 13  &kp LC(LA(LS(E)))  &kp LC(GRAVE)        &kp LS(LC(K))  &trans     &trans                &trans  &kp LC(FSLH)  &trans
-                              &to 0   &trans             &trans               &kp LA(F2)     &kp LG(A)  &trans
+                              &to 0   &trans             &mo 13               &kp LA(F2)     &kp LG(A)  &trans
             >;
         };
 
