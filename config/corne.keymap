@@ -118,8 +118,8 @@
             //                       |       | NUMB  | NAVI |   | SYMB |       |       |
 
             bindings = <
-&none     &mt RGUI Q        &mt RALT W           &mt RSHFT F  &mt RCTRL P     &lt BLUE B      &kp J         &mt RCTRL L    &mt RSHFT O  &mt RALT Y             &lt NORW SQT    &none
-&kp BSPC  &mt LGUI A        &mt LALT R           &mt LSHFT S  &mt LCTRL T     &lt 8 G         &lt CODE M    &mt LCTRL N    &mt LSHFT E  &mt LALT I             &mt LMETA U     &none
+&none     &mt RGUI Q        &mt RALT W           &mt RSHFT F  &mt RCTRL P     &lt BLUE B      &kp J         &mt RCTRL L    &mt RSHFT U  &mt RALT Y             &lt NORW SQT    &none
+&kp BSPC  &mt LGUI A        &mt LALT R           &mt LSHFT S  &mt LCTRL T     &lt 8 G         &lt CODE M    &mt LCTRL N    &mt LSHFT E  &mt LALT I             &mt LMETA O     &none
 &td_caps  &mt LEFT_SHIFT Z  &mt LS(RIGHT_ALT) X  &kp C        &lt 5 D         &lt FUNC V      &lt 3 K       &kp H          &kp COMMA    &mt LS(RIGHT_ALT) DOT  &lt MEDI SLASH  &none
                                                  &kp ESCAPE   &lt NUMB SPACE  &lt NAVI TAB    &lt SYMB RET  &lt NAVI BSPC  &kp DEL
             >;
@@ -399,10 +399,10 @@
             //                       |       | NUMB  | NAVI |   | SYMB |       |       |
 
             bindings = <
-&none      &kp Q  &kp W  &kp F       &kp P      &kp B           &kp J    &kp L      &kp O      &kp Y    &kp SQT    &none
-&kp BSPC   &kp A  &kp R  &kp S       &kp T      &kp G           &kp M    &kp N      &kp E      &kp I    &kp U      &none
-&kp LSHFT  &kp Z  &kp X  &kp C       &kp D      &kp V           &kp K    &kp H      &kp COMMA  &kp DOT  &kp SLASH  &none
-                         &kp ESCAPE  &kp SPACE  &lt NAVI TAB    &kp RET  &kp LCTRL  &kp DEL
+&none      &kp Q  &kp W  &kp F       &kp P        &kp B           &kp J    &kp L      &kp U      &kp Y    &kp SQT    &none
+&kp BSPC   &kp A  &kp R  &kp S       &mt LCTRL T  &kp G           &kp M    &kp N      &kp E      &kp I    &kp O      &none
+&kp LSHFT  &kp Z  &kp X  &kp C       &kp D        &kp V           &kp K    &kp H      &kp COMMA  &kp DOT  &kp SLASH  &none
+                         &kp ESCAPE  &kp SPACE    &lt NAVI TAB    &kp RET  &kp LCTRL  &kp DEL
             >;
         };
 
