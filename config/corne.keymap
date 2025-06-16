@@ -1,4 +1,3 @@
-
 /*
  * Copyright (c) 2020 The ZMK Contributors
  *
@@ -6,416 +5,67 @@
  */
 
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
-
-#define BASE 0
-#define NAVI 1
-#define SYMB 2
-#define NUMB 3
-#define FUNC 4
-#define CODE 5
-#define MEDI 6
-#define BLUE 7
-#define TILE 8
-#define NORW 9
-#define TSIZ 10
-#define SELC 11
-#define GAME 12
-#define TERM 13
-#define QWER 14
-#define CSPL 15
-
-&mt {
-    //   retro-tap;
-
-    quick-tap-ms = <325>;
-    global-quick-tap;
-    flavor = "tap-preferred";
-    tapping-term-ms = <250>;
-    require-prior-idle-ms = <125>;
-};
-
-&lt {
-    tapping-term-ms = <150>;
-    quick-tap-ms = <225>;
-};
+#include <dt-bindings/zmk/bt.h>
 
 / {
-    behaviors {
-        hml: homerow_left {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <100>;
-            quick-tap-ms = <200>;
-            flavor = "tap-unless-interrupted";
-            bindings = <&kp>, <&kp>;
+        keymap {
+                compatible = "zmk,keymap";
 
-            hold-trigger-key-positions = <6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 39 40 41>;
+                default_layer {
+// -----------------------------------------------------------------------------------------
+// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
+// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
+// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
+//                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
+                        display-name = "Base";
+                        bindings = <
+   &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
+   &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
+   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp ESC
+                  &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp RALT
+                        >;
+                };
+                lower_layer {
+// -----------------------------------------------------------------------------------------
+// |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
+// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
+// | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
+//                    | GUI |     | SPC |   | ENT |     | ALT |
+                        display-name = "Lower";
+                        bindings = <
+   &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
+   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
+   &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &trans
+                          	        &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
+                        >;
+                };
+
+                raise_layer {
+// -----------------------------------------------------------------------------------------
+// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
+// | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
+// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
+//                    | GUI |     | SPC |   | ENT |     | ALT |
+                        display-name = "Raise";
+                        bindings = <
+   &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
+   &kp LCTRL &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
+   &kp LSHFT &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
+                    	     &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
+                        >;
+                };
+
+                extra_1 {
+                        status = "reserved";
+                };
+
+                extra_2 {
+                        status = "reserved";
+                };
+
+                extra_3 {
+                        status = "reserved";
+                };
         };
-
-        hmr: homerow_right {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <150>;
-            quick-tap-ms = <0>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-
-            hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38>;
-        };
-
-        td_caps: td_caps {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_CAPS";
-            #binding-cells = <0>;
-            bindings = <&kp LEFT_SHIFT>, <&caps_word>;
-
-            tapping-term-ms = <100>;
-        };
-    };
-
-    macros {
-        vsc: macro_vscode_cmd {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            bindings =
-                <&macro_tap>,
-                <&kp LC(K) &macro_param_1to1>,
-                <&macro_tap>,
-                <&kp MACRO_PLACEHOLDER>;
-        };
-
-        nor_aa: nor_aa {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LS(RA(LEFT_BRACKET)) &kp A>;
-
-            label = "NOR_AA";
-        };
-    };
-
-    keymap {
-        compatible = "zmk,keymap";
-
-        // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-
-        default_layer {
-            // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-
-            label = "BASE";
-            display-name = "Base";
-
-            // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-            // -----------------------------------------------------------------------------------------
-            // |      |  Q  |  W  |  F  |  P  |  B  |   |  J  |  L   |  O  |  Y  |  '  |     |
-            // | BKSP |  A  |  R  |  S  |  T  |  G  |   |  M  |  N   |  E  |  I  |  U  |     |
-            // | SHFT |  Z  |  X  |  C  |  D  |  V  |   |  K  |  H   |  ,  |  .  |  /  |     |
-            //                    | ESC | SPC | TAB |   | ENT | BKSP | DEL |
-            // -----------------------------------------------------------------------------------------
-            // |      | RMETA | RALT | RSHFT | RCTRL | BLUE |   |      | RCTRL | RSHFT | RALT | NORW |   |
-            // |      | LMETA | LALT | LSHFT | LCTRL | CODE |   | CODE | LCTRL | LSHFT | LALT | LMETA |   |
-            // |      |       |      |       |       | FUNC |   |      |       |       |      | MEDIA |   |
-            //                       |       | NUMB  | NAVI |   | SYMB |       |       |
-
-            bindings = <
-&none     &mt RGUI Q        &mt RALT W           &mt RSHFT F  &mt RCTRL P     &lt BLUE B      &kp J         &mt RCTRL L    &mt RSHFT U  &mt RALT Y             &lt NORW SQT    &none
-&kp BSPC  &mt LGUI A        &mt LALT R           &mt LSHFT S  &mt LCTRL T     &lt 8 G         &lt CODE M    &mt LCTRL N    &mt LSHFT E  &mt LALT I             &mt LMETA O     &none
-&td_caps  &mt LEFT_SHIFT Z  &mt LS(RIGHT_ALT) X  &kp C        &lt 5 D         &lt FUNC V      &lt 3 K       &kp H          &kp COMMA    &mt LS(RIGHT_ALT) DOT  &lt MEDI SLASH  &none
-                                                 &kp ESCAPE   &lt NUMB SPACE  &lt NAVI TAB    &lt SYMB RET  &lt NAVI BSPC  &kp DEL
-            >;
-        };
-
-        // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-
-        nav_layer {
-            // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-
-            label = "NAVI";
-            display-name = "Navigate";
-
-            // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-            // -----------------------------------------------------------------------------------------
-            // |      |      |        |      |        |     |   | TOP | HOME |  UP  |  END  | PGUP |     |
-            // |      |  SEL | RELOAD | SAVE | NEWTAB |     |   |     | LEFT | DOWN |  RGT  | PGDN |     |
-            // |      |      |        |      |        |     |   |     |      |      |  BTTM |      |     |
-            //                        | BASE |        |     |   |     |      |  SEL |
-
-            bindings = <
-&none   &none           &none           &none            &none            &none            &kp LC(HOME)  &kp HOME  &kp UP    &kp END      &kp PAGE_UP    &none
-&none   &mt LGUI LC(A)  &mt LALT LC(R)  &mt LSHFT LC(S)  &mt LCTRL LC(T)  &none            &none         &kp LEFT  &kp DOWN  &kp RIGHT    &kp PAGE_DOWN  &none
-&trans  &kp LC(Z)       &kp LC(X)       &kp LC(C)        &kp LC(V)        &kp LC(LS(Z))    &none         &trans    &trans    &kp LC(END)  &trans         &none
-                                        &to BASE         &none            &none            &trans        &mo 11    &mo SELC
-            >;
-        };
-
-        // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-
-        symbol_layer {
-            // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-
-            label = "SYMB";
-            display-name = "Symbol";
-
-            // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-            // -----------------------------------------------------------------------------------------
-            // |    |     |  #  |  £  |  ^  |  «  |    |  »  |     |     |     |     |  |
-            // |    |  |  |  @  |  _  |  `  |  (  |    |  )  |  "  |  :  |  ;  |     |  |
-            // |    |  \  |  ~  |  &  |  $  |  {  |    |  }  |     |     |     |  ?  |  |
-            //                 | BASE |     |     |    |     |     |     |
-
-            bindings = <
-&trans  &kp LS(RA(N0))     &kp HASH      &kp LS(NUMBER_3)     &kp RA(NUMBER_4)  &kp RA(Z)     &kp RA(X)  &kp LS(N6)    &kp RSHIFT       &kp RALT       &kp RGUI   &none
-&trans  &mt LGUI LS(NUBS)  &mt LALT DQT  &mt LSHFT LS(MINUS)  &mt LCTRL GRAVE   &kp LPAR      &kp RPAR   &mt LCTRL AT  &mt LSHFT COLON  &mt LALT SEMI  &kp LGUI   &none
-&trans  &kp NUBS           &kp PIPE      &kp AMPS             &kp DLLR          &kp LBRC      &kp RBRC   &none         &none            &kp RA(LSHFT)  &kp QMARK  &none
-                                         &to BASE             &trans            &caps_word    &trans     &trans        &trans
-            >;
-        };
-
-        // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-
-        number_layer {
-            // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-
-            label = "NUMB";
-            display-name = "Number";
-
-            // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-            // -----------------------------------------------------------------------------------------
-            // |   |     |     |     |     |     |   |     |  7  |  8  |  9  |  0  |   |
-            // |   |  !  |  =  |  -  |  +  |  <  |   |  >  |  4  |  5  |  6  |  ,  |   |
-            // |   |     |     |  %  |  *  |  [  |   |  ]  |  1  |  2  |  3  |  .  |   |
-            //                | BASE |     |     |   |     |     |     |
-
-            bindings = <
-&none   &mt RIGHT_GUI N1  &mt RIGHT_ALT NUMBER_2  &mt RIGHT_SHIFT NUMBER_3  &mt RCTRL N4    &kp N5              &kp N6             &kp N7              &kp N8             &kp N9           &kp N0              &none
-&none   &mt LMETA EXCL    &mt LALT EQUAL          &mt LSHFT MINUS           &mt LCTRL PLUS  &kp LT              &kp GT             &mt LCTRL NUMBER_4  &mt LEFT_SHIFT N5  &mt LEFT_ALT N6  &mt LEFT_GUI COMMA  &none
-&trans  &none             &kp RS(RIGHT_ALT)       &kp PERCENT               &kp STAR        &kp LEFT_BRACKET    &kp RIGHT_BRACKET  &kp N1              &kp N2             &kp N3           &kp DOT             &none
-                                                  &to BASE                  &trans          &trans              &trans             &kp N0              &kp N0
-            >;
-        };
-
-        // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-
-        function_layer {
-            // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-
-            label = "FUNC";
-            display-name = "Function";
-
-            // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-            // -----------------------------------------------------------------------------------------
-            // |    |     |     |     |     |     |   |     |     |     |     |     |      |
-            // |    |     |     |     |     |     |   |     |     |     |     |     |      |
-            // |    |     |     |     |     |     |   |     |     |     |     |     |      |
-            //                 | BASE |     |     |   |     |     |     |
-
-            bindings = <
-&none   &kp PAUSE_BREAK  &kp SCROLLLOCK  &kp KP_NUM      &kp PSCRN  &kp CAPS    &trans  &kp F7  &kp F8  &kp F9  &kp F12  &trans
-&trans  &kp LEFT_GUI     &kp LEFT_ALT    &kp LEFT_SHIFT  &kp LCTRL  &kp INS     &trans  &kp F4  &kp F5  &kp F6  &kp F11  &trans
-&trans  &kp LEFT_GUI     &kp LEFT_ALT    &kp LSHIFT      &kp LCTRL  &trans      &trans  &kp F1  &kp F2  &kp F3  &kp F10  &trans
-                                         &to 0           &trans     &trans      &trans  &trans  &trans
-            >;
-        };
-
-        // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-
-        code_layer {
-            // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-
-            label = "CODE";
-            display-name = "Code";
-
-            // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-            // -----------------------------------------------------------------------------------------
-            // |    |     |     |      |       |      |   | Impl |     |  DUPE UP  |     |     |      |
-            // |    |     |     | SAVE |       |      |   |      |     | DUPE DOWN |     |     |      |
-            // |    |     |     |      | MVTRM | TERM |   |      |     |           |     |     |      |
-            //                  | BASE |       |      |   |      |     |           |
-
-            bindings = <
-&trans        &to 12  &trans  &trans  &trans             &trans               &kp LS(F12)    &trans     &kp LC(LA(LS(UP)))    &trans  &trans        &trans
-&trans        &trans  &trans  &vsc S  &trans             &kp LS(LA(LC(E)))    &trans         &trans     &kp LC(LA(LS(DOWN)))  &trans  &trans        &trans
-&kp LC(BSLH)  &vsc Z  &trans  &mo 13  &kp LC(LA(LS(E)))  &kp LC(GRAVE)        &kp LS(LC(K))  &trans     &trans                &trans  &kp LC(FSLH)  &trans
-                              &to 0   &trans             &mo 13               &kp LA(F2)     &kp LG(A)  &trans
-            >;
-        };
-
-        // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-
-        media_layer {
-            // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-
-            label = "MEDI";
-            display-name = "Media";
-
-            // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-            // -----------------------------------------------------------------------------------------
-            // |    |     |     |     |     |     |   |     |     |     |      | VOL+ |      |
-            // |    |     |     |     |     |     |   |     |     |     |      | VOL- |      |
-            // |    |     |     |     |     |     |   |     |     |     | MUTE |      |      |
-            //                 | BASE |     |     |   |     |     |     |
-
-            bindings = <
-&kp K_POWER  &trans  &trans  &trans  &trans  &kp K_SLEEP             &trans  &trans  &trans  &trans      &kp C_VOL_UP  &none
-&trans       &trans  &trans  &trans  &trans  &kp C_AL_SCREENSAVER    &trans  &trans  &trans  &trans      &kp C_VOL_DN  &none
-&trans       &trans  &trans  &trans  &trans  &kp K_LOCK              &trans  &trans  &trans  &kp K_MUTE  &trans        &trans
-                             &to 0   &trans  &trans                  &trans  &trans  &trans
-            >;
-        };
-
-        // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-
-        bluetooth_layer {
-            // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-
-            label = "BLUE";
-            display-name = "Bluetooth";
-
-            // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-            // -----------------------------------------------------------------------------------------
-            // |    |     |     |     |     |     |   |     | BT CLR |      |      |      |      |
-            // |    |     |     |     |     |     |   |     |        | BT 4 |      |      |      |
-            // |    |     |     |     |     |     |   |     |        | BT 1 | BT 2 | BT 3 |      |
-            //                 | BASE |     |     |   |     |        | BT 0 |
-
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &bt BT_CLR  &none         &none         &none         &none  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &none       &bt BT_SEL 3  &bt BT_SEL 4  &none         &none  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &none       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &none  &trans
-                        &to 0   &trans  &trans    &none       &none         &none
-            >;
-        };
-
-        // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-
-        tile_layer {
-            // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-
-            label = "TILE";
-            display-name = "Tiling";
-
-            // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-            // -----------------------------------------------------------------------------------------
-            // |    |     |     |     |     |     |   |     |     |     |     |     |      |
-            // |    |     |     |     |     |     |   |     |     |     |     |     |      |
-            // |    |     |     |     |     |     |   |     |     |     |     |     |      |
-            //                 | BASE |     |     |   |     |     |     |
-
-            bindings = <
-&trans  &kp LG(LC(ESC))  &trans  &trans  &kp LG(LS(GRAVE))  &kp LG(GRAVE)    &trans  &kp LG(HOME)  &kp LG(UP)    &kp LG(END)    &kp LG(PAGE_UP)    &trans
-&trans  &trans           &trans  &trans  &trans             &trans           &trans  &kp LG(LEFT)  &kp LG(DOWN)  &kp LG(RIGHT)  &kp LG(PAGE_DOWN)  &trans
-&trans  &none            &none   &none   &trans             &trans           &trans  &trans        &trans        &trans         &trans             &trans
-                                 &to 0   &trans             &trans           &trans  &trans        &mo TSIZ
-            >;
-        };
-
-        // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-
-        norway_layer {
-            // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-
-            label = "NORW";
-            display-name = "Norway";
-
-            // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-            // -----------------------------------------------------------------------------------------
-            // |    |     |     |     |     |     |   |     |     |     |     |     |      |
-            // |    |     |     |     |     |     |   |     |     |     |     |     |      |
-            // |    |     |     |     |     |     |   |     |     |     |     |     |      |
-            //                 | BASE |     |     |   |     |     |     |
-
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans     &nor_aa    &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &kp RA(A)  &kp RA(O)  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans     &trans     &trans  &trans
-                        &to 0   &trans  &trans    &trans  &trans  &trans
-            >;
-        };
-
-        // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-
-        tilesize_layer {
-            // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-
-            label = "TSIZ";
-            display-name = "TileSize";
-
-            // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-            // -----------------------------------------------------------------------------------------
-            // |    |     |     |     |     |     |   |     |           | SIZE UP   |           |     |      |
-            // |    |     |     |     |     |     |   |     | SIZE LEFT | SIZE DOWN | SIZERIGHT |     |      |
-            // |    |     |     |     |     |     |   |     |           |           |           |     |      |
-            //                 | BASE |     |     |   |     |           |           |
-
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans         &kp LG(LS(EQUAL))  &trans         &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LG(EQUAL)  &kp LG(LS(MINUS))  &kp LG(EQUAL)  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans         &trans             &trans         &trans  &trans
-                        &to 0   &trans  &trans    &trans  &trans         &trans
-            >;
-        };
-
-        // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-
-        select_layer {
-            // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-
-            label = "SELC";
-            display-name = "Select";
-
-            // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-            // -----------------------------------------------------------------------------------------
-            // |    |     |     |     |     |     |   | SELTOP | SELHOME |  | SELEND   | SELBTTM |      |
-            // |    |     |     |     |     |     |   |        | SELLEFT |  | SELRIGHT |         |      |
-            // |    |     |     |     |     |     |   |        |         |  |          |         |      |
-            //                 | BASE |     |     |   |        |         |  |
-
-            bindings = <
-&trans  &trans  &trans             &trans  &trans       &trans    &kp LC(LS(HOME))  &kp LS(HOME)      &trans  &kp LS(END)    &kp LC(LS(END))  &trans
-&trans  &trans  &kp LC(BACKSPACE)  &trans  &kp LC(DEL)  &trans    &trans            &kp LC(LS(LEFT))  &trans  &kp LC(RIGHT)  &trans           &trans
-&trans  &trans  &trans             &trans  &trans       &trans    &trans            &trans            &trans  &trans         &trans           &trans
-                                   &to 0   &trans       &trans    &trans            &trans            &trans
-            >;
-        };
-
-        // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-
-        game_layer {
-            // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-
-            label = "GAME";
-            display-name = "Game";
-
-            // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-            // -----------------------------------------------------------------------------------------
-            // |      |  Q  |  W  |  F  |  P  |  B  |   |  J  |  L   |  O  |  Y  |  '  |     |
-            // | BKSP |  A  |  R  |  S  |  T  |  G  |   |  M  |  N   |  E  |  I  |  U  |     |
-            // | SHFT |  Z  |  X  |  C  |  D  |  V  |   |  K  |  H   |  ,  |  .  |  /  |     |
-            //                    | ESC | SPC | TAB |   | ENT | BKSP | DEL |
-            // -----------------------------------------------------------------------------------------
-            // |      | RMETA | RALT | RSHFT | RCTRL | BLUE |   |      | RCTRL | RSHFT | RALT | NORW |   |
-            // |      | LMETA | LALT | LSHFT | LCTRL | CODE |   | CODE | LCTRL | LSHFT | LALT | LMETA |   |
-            // |      |       |      |       |       | FUNC |   |      |       |       |      | MEDIA |   |
-            //                       |       | NUMB  | NAVI |   | SYMB |       |       |
-
-            bindings = <
-&none      &kp Q  &kp W  &kp F       &kp P        &kp B           &kp J    &kp L      &kp U      &kp Y    &kp SQT    &none
-&kp BSPC   &kp A  &kp R  &kp S       &mt LCTRL T  &kp G           &kp M    &kp N      &kp E      &kp I    &kp O      &none
-&kp LSHFT  &kp Z  &kp X  &kp C       &kp D        &kp V           &kp K    &kp H      &kp COMMA  &kp DOT  &kp SLASH  &none
-                         &kp ESCAPE  &kp SPACE    &lt NAVI TAB    &kp RET  &kp LCTRL  &kp DEL
-            >;
-        };
-
-        code_split_layer {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans         &vsc LS(UP_ARROW)    &trans          &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &vsc LS(LEFT)  &vsc LS(DOWN_ARROW)  &vsc LS(RIGHT)  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans         &trans               &trans          &trans  &trans
-                        &to 0   &trans  &trans    &trans  &trans         &trans
-            >;
-        };
-
-        // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-    };
 };
